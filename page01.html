@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <style>
+    /* Background */
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe6f0, #e0f7fa);
+      background-image: 
+        radial-gradient(circle at top left, rgba(255, 192, 203, 0.3) 10%, transparent 11%),
+        radial-gradient(circle at bottom right, rgba(173, 216, 230, 0.3) 10%, transparent 11%);
+      background-size: 150px 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 2em;
+      color: #d63384;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px #f8c5df;
+    }
+
+    /* Input */
+input {
+  padding: 12px 24px;
+  font-size: 1.2em;
+  border: 2px solid #ffb6c1;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.6);
+  background-color: white;
+  color: #d63384;
+  text-align: center;         /* horizontal center */
+  height: 30px;
+  line-height: 50px;          /* vertical center */
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+}
+
+
+    /* Warning Text */
+    #warning {
+      color: #d00000;
+      font-weight: bold;
+      margin-bottom: 30px;
+      display: none;
+      font-size: 1.1em;
+    }
+
+    /* Button Style */
+    #nextBtn {
+      padding: 15px 50px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+      color: white;
+      cursor: pointer;
+      position: absolute;
+      bottom: 60px;
+      display: none;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: none;
+    }
+
+    /* Show class for animation */
+    #nextBtn.show {
+      display: inline-block;
+      animation: fadeIn 1s forwards, softGlow 2s infinite alternate;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Glow animation */
+    @keyframes softGlow {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.3), 0 0 20px rgba(255, 105, 180, 0.2);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.6), 0 0 30px rgba(255, 105, 180, 0.4);
+      }
+    }
+
+    /* Hover effect */
+    #nextBtn:hover {
+      background: linear-gradient(135deg, #ff69b4, #ff1493);
+    }
+  </style>
+</head>
+<body>
+  <h1>Hi! Welcome 😁</h1>
+  <input type="text" id="nameInput" placeholder="Enter your name here" />
+  <div id="warning">Noi Noi Noi 🤔</div>
+  <button id="nextBtn" onclick="goToNext()">Next</button>
+
+  <script>
+  const nameInput = document.getElementById('nameInput');
+  const nextBtn = document.getElementById('nextBtn');
+  const warning = document.getElementById('warning');
+
+  nameInput.addEventListener('input', () => {
+    const name = nameInput.value.trim().toLowerCase();
+    if (name === '5 futiya') {
+      // Button show karo agar match ho
+      if (!nextBtn.classList.contains('show')) {
+        nextBtn.style.display = 'inline-block';  // Pehle display dikhana hoga
+        setTimeout(() => {
+          nextBtn.classList.add('show');
+        }, 50); // slight delay so animation runs
+      }
+      warning.style.display = 'none';
+    } else {
+      nextBtn.classList.remove('show');
+      nextBtn.style.display = 'none';
+      if (name.length > 0) {
+        warning.style.display = 'block';
+      } else {
+        warning.style.display = 'none';
+      }
+    }
+  });
+
+  function goToNext() {
+    window.location.href = "page02.html";
+  }
+</script>
+</body>
+</html>

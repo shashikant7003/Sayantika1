@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Funny Question</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+            background: linear-gradient(135deg, #ffe6f0, #e0f7fa);
+      background-image: 
+        radial-gradient(circle at top left, rgba(255, 192, 203, 0.3) 10%, transparent 11%),
+        radial-gradient(circle at bottom right, rgba(173, 216, 230, 0.3) 10%, transparent 11%);
+      background-size: 150px 150px;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 1.8em;
+      margin-bottom: 60px;
+      text-align: center;
+      text-shadow: 1px 1px 3px #f8c5df;
+    }
+
+    button {
+      position: absolute;
+      padding: 12px 35px;
+      font-size: 1em;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(135deg, #ff9aa2, #ff6f91);
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #ff6f91, #ff4b91);
+    }
+
+    #yesBtn {
+      left: 40%;
+      top: 60%;
+    }
+
+    #noBtn {
+      left: 55%;
+      top: 60%;
+    }
+
+    .warning {
+      position: absolute;
+      bottom: 50px;
+      color: #ff0033;
+      font-weight: bold;
+      font-size: 1.1em;
+      display: none;
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Apka dimag ghutno mein hai na? 🤔</h1>
+
+  <button id="yesBtn" onclick="goToPage4()">Yes</button>
+  <button id="noBtn" onclick="moveNoBtn()">No</button>
+
+  <div class="warning" id="warnMsg">Ek bar dubara soch lo! 😁</div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const warnMsg = document.getElementById("warnMsg");
+
+    function moveNoBtn() {
+      const bodyRect = document.body.getBoundingClientRect();
+      const yesRect = yesBtn.getBoundingClientRect();
+      const noWidth = noBtn.offsetWidth;
+      const noHeight = noBtn.offsetHeight;
+
+      let randomX, randomY, overlap;
+
+      do {
+        randomX = Math.floor(Math.random() * (window.innerWidth - noWidth));
+        randomY = Math.floor(Math.random() * (window.innerHeight - noHeight));
+
+        // Overlap check with Yes button
+        const noLeft = randomX;
+        const noRight = randomX + noWidth;
+        const noTop = randomY;
+        const noBottom = randomY + noHeight;
+
+        const yesLeft = yesRect.left;
+        const yesRight = yesRect.right;
+        const yesTop = yesRect.top;
+        const yesBottom = yesRect.bottom;
+
+        overlap = !(noRight < yesLeft || noLeft > yesRight || noBottom < yesTop || noTop > yesBottom);
+      } while (overlap);
+
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+
+      warnMsg.style.display = "block";
+      warnMsg.style.animation = "shake 0.4s";
+      setTimeout(() => {
+        warnMsg.style.animation = "";
+      }, 400);
+    }
+
+    function goToPage4() {
+      window.location.href = "game.html";
+    }
+  </script>
+
+</body>
+</html>
