@@ -60,5 +60,5 @@ function checkMatch() {
 
 // 👇 Redirect to page2.html on click
 document.getElementById('nextBtn').addEventListener('click', () => {
-  window.location.href = "page03.html"; // Apne actual page2 ka naam yahaan likhna
+  window.location.href = "text.html"; // Apne actual page2 ka naam yahaan likhna
 });
