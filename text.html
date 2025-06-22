@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Flip Cards</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+                  background: linear-gradient(135deg, #ffe6f0, #e0f7fa);
+      background-image: 
+        radial-gradient(circle at top left, rgba(255, 192, 203, 0.3) 10%, transparent 11%),
+        radial-gradient(circle at bottom right, rgba(173, 216, 230, 0.3) 10%, transparent 11%);
+      background-size: 150px 150px;
+    }
+    h1 { color: #d72660; margin-top: 30px; }
+    .swiper {
+      width: 320px;
+      height: 420px;
+      margin-top: 30px;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flip-card {
+      width: 280px;
+      height: 380px;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(.4,2.08,.55,.44);
+      transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(215,38,96,0.15);
+      backface-visibility: hidden;
+    }
+    .flip-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .flip-card-back {
+      background: #d72660;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15em;
+      padding: 20px;
+      transform: rotateY(180deg);
+    }
+    /* Next button style */
+    #nextBtn {
+      display: none;
+      margin: 40px auto 0 auto;
+      padding: 14px 44px;
+      font-size: 1.1em;
+      background: #d72660;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 4px 16px rgba(215,38,96,0.15);
+    }
+    #nextBtn:hover {
+      background: #b71c4c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flip and swip for Go..😉</h1>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Card 1 -->
+      <div class="swiper-slide">
+        <div class="flip-card" data-index="0">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="s1.jpg" alt="Friend 1"/>
+            </div>
+            <div class="flip-card-back">
+              <p>Aapki muskaan dil ko chhoo jaati hai,✨<br />
+Jaise subah ki roshni phoolon ko mehkaati hai.🌷<br />
+Har baat mein ek narmi, har andaaz mein pyaar hai,
+💞<br />Aap jaise logon ka milna hi ek uphaar hai.👀</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="swiper-slide">
+        <div class="flip-card" data-index="1">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="s2.jpg" alt="Friend 2"/>
+            </div>
+            <div class="flip-card-back">
+              <p>Aaj ka din kitna khaas hai,💫<br />
+Kyunki aapka janamdin mere paas hai.🌟<br />
+Dil se dua hai, har khushi aapke kadam chume,💝<br />
+Zindagi har mod par aapko sirf pyaar mile.☺️</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="swiper-slide">
+        <div class="flip-card" data-index="2">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="s3.jpg" alt="Friend 3"/>
+            </div>
+            <div class="flip-card-back">
+              <p>Aapki har baat mein ek naya noor hota hai,😌<br />
+Aapka har kadam ek nayi roshni laata hai✨.<br />
+Jis jagah aap hoti hain, wahan khushbu bas jaati hai,🌹<br />
+Aapka hona hi ek tasalli ban jaata hai.🤞🏻</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="swiper-slide">
+        <div class="flip-card" data-index="3">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="s4.jpg" alt="Friend 4"/>
+            </div>
+            <div class="flip-card-back">
+              <p>Har saal aaye yeh din leke khushiyon ka paighaam,🥳<br />
+Har dua mein bas aapka naam ho shaamil har shaam🤍.<br />
+Jitni khoobsurat aap hain, utni hi khoobsurat ho zindagi,👀<br />
+Yahi dua hai, aapki har khushi ho kabhi na adhoori✍🏻.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="swiper-slide">
+        <div class="flip-card" data-index="4">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="s5.jpg" alt="Friend 5"/>
+            </div>
+            <div class="flip-card-back">
+              <p>Aapki baaton mein hai shabdon ka sukoon,🤫<br />
+Aapki muskaan mein chhupi hai chaandni ka junoon🌙.<br />
+Aap jahan hoti hain, lagta hai waqt ruk sa gaya,😶‍🌫️<br />
+Aap jaise log dil mein bas jaate hain khuda ki rehmat ban ke.✨
+</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="nextBtn">Next</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.mySwiper', {
+      effect: 'cards',
+      grabCursor: true,
+      cardsEffect: {
+        slideShadows: false,
+      },
+    });
+
+    // Track flipped cards
+    let flipped = [false, false, false, false, false];
+    const totalCards = 5;
+    const nextBtn = document.getElementById('nextBtn');
+
+    // Flip card logic
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (swiper.animating) return;
+        // Remove flip from other cards
+        document.querySelectorAll('.flip-card').forEach(c => {
+          if (c !== card) c.classList.remove('flipped');
+        });
+        // Toggle flip on current card
+        card.classList.toggle('flipped');
+
+        // Mark as flipped if now flipped, else unmark
+        const index = parseInt(card.getAttribute('data-index'));
+        flipped[index] = card.classList.contains('flipped');
+
+        // Show next button if all cards flipped
+        if (flipped.every(f => f)) {
+          nextBtn.style.display = 'block';
+        } else {
+          nextBtn.style.display = 'none';
+        }
+      });
+    });
+
+    // Unflip card on slide change
+    swiper.on('slideChange', function() {
+      document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('flipped'));
+    });
+
+    // Next button click - go to page2.html
+    nextBtn.addEventListener('click', function() {
+      window.location.href = "page03.html";
+    });
+  </script>
+</body>
+</html>
